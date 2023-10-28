@@ -15,6 +15,8 @@ class PepSpider(scrapy.Spider):
         )
         for pep in pep_list:
             pep_link = pep.css("a::attr(href)").get()
+            if pep_link and not pep_link.endswith("/"):
+                pep_link += "/"
             yield response.follow(pep_link, callback=self.parse_pep)
 
     def parse_pep(self, response):

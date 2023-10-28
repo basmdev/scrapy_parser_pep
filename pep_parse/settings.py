@@ -10,14 +10,30 @@ ALLOWED_DOMAINS = [
     "peps.python.org",
 ]
 BASE_DIR = Path(__file__).parent.parent
+
 RESULTS = "results"
+"""Имя директории, где будут храниться результаты скрапинга."""
+
 NUMBER = "number"
+"""Название поля, представляющего номер PEP."""
+
 NAME = "name"
+"""Название поля, представляющего имя PEP."""
+
 STATUS = "status"
-QTY = "qty"
+"""Название поля, представляющего статус PEP."""
+
+QTY = "quantity"
+"""Название поля, представляющего количество PEP."""
+
 STATUS_SUMMARY = "status_summary"
+"""Префикс имени файла для сводной информации о статусах PEP."""
+
 TOTAL = "Total"
+"""Название поля, представляющего общее количество PEP."""
+
 DT_FORMAT = "%Y-%m-%d_%H-%M-%S"
+"""Формат времени и даты для создания имен файлов."""
 
 FEEDS = {
     f"{RESULTS}/pep_%(time)s.csv": {
@@ -26,6 +42,7 @@ FEEDS = {
         "overwrite": True,
     },
 }
+
 ITEM_PIPELINES = {
     "pep_parse.pipelines.PepParsePipeline": 300,
 }
